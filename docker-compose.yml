@@ -1,0 +1,8 @@
+services:
+  app:
+    image: san8888/veida-image-starter:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - VEIDA_API_KEY=${VEIDA_API_KEY:-}
+    restart: unless-stopped

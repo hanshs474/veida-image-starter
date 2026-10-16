@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://schema.zeabur.app/template.json
+apiVersion: zeabur.com/v1
+kind: Template
+metadata:
+  name: AI Image Generator (Veida AI)
+spec:
+  description: One-page text-to-image app on the Veida AI API, free with no API key, zero dependencies
+  icon: https://veida.ai/logo.png
+  tags:
+    - AI
+    - Tool
+  readme: |
+    # AI Image Generator (Veida AI)
+
+    A one-page text-to-image web app: type a prompt, pick an aspect ratio, and get the picture back in about a minute. One Node file, no npm dependencies.
+
+    Images come from the API of [Veida AI](https://veida.ai/?utm_source=zeabur&utm_medium=template), an unlimited free AI image generator. It works with nothing configured: without a key every generation is one free run on Veida AI Image v1, about seven a day per server. To run on your own account, create a key at [veida.ai/settings/apikeys](https://veida.ai/settings/apikeys?utm_source=zeabur&utm_medium=template) and set it as `VEIDA_API_KEY`.
+
+    Looking for prompts that already work? Browse the [AI image prompt library](https://veida.ai/image/prompts?utm_source=zeabur&utm_medium=template). Source: [github.com/hanshs474/veida-image-starter](https://github.com/hanshs474/veida-image-starter).
+  variables:
+    - key: PUBLIC_DOMAIN
+      type: DOMAIN
+      name: Domain
+      description: Domain for the web page
+  services:
+    - name: veida-image-starter
+      icon: https://veida.ai/logo.png
+      template: PREBUILT_V2
+      spec:
+        source:
+          image: san8888/veida-image-starter:latest
+        ports:
+          - id: web
+            port: 3000
+            type: HTTP
+        env:
+          PORT:
+            default: "3000"
+      domainKey: PUBLIC_DOMAIN
