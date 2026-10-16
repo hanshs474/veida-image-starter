@@ -8,6 +8,7 @@ Images come from the [Veida AI](https://veida.ai/?utm_source=github&utm_medium=s
 ## Deploy
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhanshs474%2Fveida-image-starter)
+[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/S5IDWW)
 
 Or run the prebuilt image: `docker run -p 3000:3000 san8888/veida-image-starter` (amd64 and arm64).
 
